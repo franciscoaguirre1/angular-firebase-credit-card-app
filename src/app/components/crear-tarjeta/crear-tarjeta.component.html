@@ -1,1 +1,32 @@
-<p>crear-tarjeta works!</p>
+<div class="card">
+    <div class="card-body">
+        <h5 class="titulo mb-3">Crear Tarjeta </h5>
+        <form [formGroup]="form" (ngSubmit)="crearTarjeta()">
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i [class.green-icon]="this.form.get('titular')?.valid" [class.red-icon]="this.form.get('titular')?.invalid && this.form.get('titular')?.touched" class="fa-solid fa-circle-user"></i></span>
+                <input formControlName="titular" type="text" class="form-control" placeholder="Titular">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i [class.green-icon]="this.form.get('numeroTarjeta')?.valid" [class.red-icon]="this.form.get('numeroTarjeta')?.invalid  && this.form.get('numeroTarjeta')?.touched" class="fa-solid fa-credit-card"></i></span>
+                <input maxlength="16" formControlName="numeroTarjeta" type="text" class="form-control" placeholder="Número Tarjeta">
+            </div>
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i [class.green-icon]="this.form.get('fechaExpiracion')?.valid" [class.red-icon]="this.form.get('fechaExpiracion')?.invalid && this.form.get('fechaExpiracion')?.touched" class="fa-solid fa-calendar-days"></i></span>
+                        <input maxlength="5" formControlName="fechaExpiracion" type="text" class="form-control" placeholder="MM/YY">
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text"><i [class.green-icon]="this.form.get('cvv')?.valid" [class.red-icon]="this.form.get('cvv')?.invalid && this.form.get('cvv')?.touched" class="fa-solid fa-key"></i></span>
+                        <input maxlength="3" formControlName="cvv" type="password" class="form-control" placeholder="CVV">
+                    </div>
+                </div>
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-success" type="submit"><i class="fa-solid fa-database"></i>&nbsp;&nbsp;&nbsp;Aceptar</button>
+            </div>
+        </form>
+    </div>
+</div>
